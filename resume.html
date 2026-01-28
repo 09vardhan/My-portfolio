@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resume | Jaya Vardhan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --text-main: #f5f5f5;
+            --text-muted: #b5b5b5;
+            --accent: #ffffff;
+            --border-soft: #2b2b2b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-soft);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(12px);
+            background: radial-gradient(circle at top, #111111 0, #050505 55%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            position: relative;
+            padding-bottom: 2px;
+            color: var(--text-main);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            width: 0;
+            background: linear-gradient(90deg, #ffffff, #8888ff);
+            transition: width 0.25s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: #ffffff;
+        }
+
+        nav a.active::after {
+            width: 100%;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 24px 40px;
+        }
+
+        .download-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .download-link {
+            border-radius: 999px;
+            border: 1px solid var(--text-main);
+            padding: 6px 16px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: radial-gradient(circle at top, #171717 0, #050505 60%);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.8);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .download-link span.icon {
+            font-size: 14px;
+            transition: transform 0.18s ease;
+        }
+
+        .download-link:hover {
+            text-decoration: none;
+            border-color: rgba(255, 255, 255, 0.7);
+            transform: translateY(-1px);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.9);
+        }
+
+        .download-link:hover span.icon {
+            transform: translateY(1px);
+        }
+
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 18px;
+        }
+
+        .name-block h1 {
+            font-size: 26px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .name-block h2 {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .contact-block {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .contact-block div {
+            white-space: nowrap;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1.8fr 1.1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-block {
+                text-align: left;
+            }
+
+            .resume-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            width: 50px;
+            background: linear-gradient(90deg, #ffffff, transparent);
+            opacity: 0.4;
+        }
+
+        .section-block {
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: radial-gradient(circle at top left, #141414 0, #050505 60%);
+            padding: 14px 16px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+            margin-bottom: 16px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            align-items: baseline;
+        }
+
+        .item-title {
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .item-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .item-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .item ul {
+            margin-top: 4px;
+            padding-left: 18px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .item ul li {
+            margin-bottom: 2px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .tag {
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 3px 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            background: radial-gradient(circle at top, #202020 0, #050505 65%);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">JAYA VARDHAN • RESUME</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="contact.html">Skills &amp; Contact</a></li>
+                    <li><a href="resume.html" class="active">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- DOWNLOAD RESUME BUTTON -->
+        <div class="download-bar">
+            <!-- Better: use direct-download style link from Drive -->
+            <a href="https://drive.google.com/uc?export=download&id=1emphIrmZB1wGrf6AdBFNRE4_ghM0vrUg"
+                class="download-link" target="_blank" rel="noopener">
+                <span class="icon">⬇</span>
+                <span>Download Resume (PDF)</span>
+            </a>
+        </div>
+
+        <!-- HEADER -->
+        <div class="resume-header">
+            <div class="name-block">
+                <h1>ANNAPAREDDY JAYA VARDHAN</h1>
+                <h2>MBA (HR) • Talent Operations &amp; Employee Relations</h2>
+            </div>
+            <div class="contact-block">
+                <div>📍 Avanigadda, Andhra Pradesh</div>
+                <div>📞 +91 73864 84900</div>
+                <div>📧 <a href="mailto:jayavardhan30007@gmail.com">jayavardhan30007@gmail.com</a></div>
+                <div>🔗 <a href="https://linkedin.com/in/jayavardhan9" target="_blank" rel="noopener">
+                        linkedin.com/in/jayavardhan9</a></div>
+            </div>
+        </div>
+
+        <div class="two-column">
+            <!-- LEFT COLUMN -->
+            <div>
+                <div class="section-block">
+                    <div class="section-title">Profile Summary</div>
+                    <div class="card">
+                        <div class="item-meta">
+                            MBA (HR) candidate with a Computer Science background, exposed to startup HR, industrial HR
+                            research,
+                            and event operations. Comfortable working with people, data, and processes to support
+                            employee
+                            satisfaction, communication, and smooth operations.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">Experience</div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Part-time HR • 2LYP Pvt Ltd (Startup)</div>
+                                <div class="item-sub">Early-stage Startup • HR Operations &amp; Talent Support</div>
+                            </div>
+                            <div class="item-meta">Part-time</div>
+                        </div>
+                        <ul>
+                            <li>Supported recruitment activities including posting roles, basic screening, and interview
+                                coordination for interns and entry-level hires.</li>
+                            <li>Helped with onboarding documentation and guided new joiners on company policies and work
+                                culture.</li>
+                            <li>Updated basic employee data such as attendance and contact details in HR records and
+                                spreadsheets.</li>
+                            <li>Assisted founders with routine HR queries and small employee engagement initiatives.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">HR Intern • Padmaja Suzuki</div>
+                                <div class="item-sub">Industrial HR Research • Employee Participation</div>
+                            </div>
+                            <div class="item-meta">Internship</div>
+                        </div>
+                        <ul>
+                            <li>Conducted survey-based research on “Employee Satisfaction towards Workers’ Participation
+                                in Management”.</li>
+                            <li>Analyzed responses to identify drivers of satisfaction, participation, and communication
+                                gaps.</li>
+                            <li>Drafted recommendations to improve participative decision-making and worker–management
+                                relations.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Event Planner &amp; Live Technician • Nortic Events</div>
+                                <div class="item-sub">Corporate &amp; Academic Events</div>
+                            </div>
+                            <div class="item-meta">Freelance / Part-time</div>
+                        </div>
+                        <ul>
+                            <li>Supported planning and execution of 10+ events ensuring smooth flow of sessions and
+                                activities.</li>
+                            <li>Managed AV setups (sound, projection, lighting) and resolved technical issues during
+                                live events.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Organizer &amp; Volunteer • Zariyaa</div>
+                                <div class="item-sub">Wellness Festivals &amp; Corporate Well-being</div>
+                            </div>
+                            <div class="item-meta">Volunteer</div>
+                        </div>
+                        <ul>
+                            <li>Helped organize wellness festivals and corporate programs related to health and stress
+                                management.</li>
+                            <li>Handled registrations, participant guidance, and basic logistics at the venue.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">Project</div>
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Flask Grocery Store Web Application</div>
+                                <div class="item-sub">Team Lead • Python, Flask, SQL, HTML/CSS</div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>Led a team of three to build a 24/7 grocery e-commerce web application.</li>
+                            <li>Coordinated task allocation, timelines, and basic user testing to improve usability.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div>
+                <div class="section-block">
+                    <div class="section-title">Education</div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">MBA – Human Resources</div>
+                                <div class="item-sub">JNTU Gurajada, Vizianagaram • 2023–2025 (Ongoing)</div>
+                            </div>
+                        </div>
+                        <div class="item-meta">Current SGPA: 8.12</div>
+                    </div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">B.Sc. – Computer Science &amp; Cognitive Systems</div>
+                                <div class="item-sub">PB Siddhartha College • Graduated 2024</div>
+                            </div>
+                        </div>
+                        <div class="item-meta">Aggregate: 7.2 / 10</div>
+                    </div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Intermediate (MPC)</div>
+                                <div class="item-sub">S VL JR College • 85%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">S.S.C.</div>
+                                <div class="item-sub">Govt High School, Avanigadda • 92%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">Skills</div>
+
+                    <div class="card">
+                        <div class="item-sub">HR &amp; People</div>
+                        <div class="tag-list">
+                            <span class="tag">Employee engagement</span>
+                            <span class="tag">Basic recruitment</span>
+                            <span class="tag">Onboarding support</span>
+                            <span class="tag">Survey &amp; feedback</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="item-sub">Operations &amp; Events</div>
+                        <div class="tag-list">
+                            <span class="tag">Event coordination</span>
+                            <span class="tag">AV handling</span>
+                            <span class="tag">Logistics support</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="item-sub">Technical</div>
+                        <div class="tag-list">
+                            <span class="tag">Python basics</span>
+                            <span class="tag">Flask basics</span>
+                            <span class="tag">MS Office</span>
+                            <span class="tag">Google Workspace</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="item-sub">Personal</div>
+                        <div class="tag-list">
+                            <span class="tag">Communication</span>
+                            <span class="tag">Teamwork</span>
+                            <span class="tag">Adaptability</span>
+                            <span class="tag">Willingness to learn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">Personal Details</div>
+                    <div class="card">
+                        <div class="item-meta"><strong>Date of Birth:</strong> 27 March 2003</div>
+                        <div class="item-meta"><strong>Gender:</strong> Male</div>
+                        <div class="item-meta"><strong>Languages:</strong> English, Telugu, Hindi</div>
+                        <div class="item-meta"><strong>Location Preference:</strong> Open to opportunities across India
+                            (willing to relocate)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

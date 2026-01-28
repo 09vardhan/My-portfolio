@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Experience | Jaya Vardhan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Corner logo that always shows full image inside */
+        .exp-logo-corner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-soft);
+            background: #111;
+            /* background shows if image doesn't fill */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exp-logo-corner img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* full logo visible, no cropping */
+            display: block;
+        }
+
+        /* Extra padding so text never collides with logo area */
+        .card.item.exp-card {
+            position: relative;
+            padding-right: 100px;
+            /* reserve space for 64px logo + gap */
+        }
+
+        /* On very small screens, reduce size so layout stays clean */
+        @media (max-width: 600px) {
+            .card.item.exp-card {
+                padding-right: 20px;
+            }
+
+            .exp-logo-corner {
+                width: 52px;
+                height: 52px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-shell">
+            <div class="logo">JAYA VARDHAN • EXPERIENCE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="experience.html" class="active">Experience</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="contact.html">Skills &amp; Contact</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-title">Professional Experience</div>
+
+        <div class="section-block">
+            <div class="section-title">HR &amp; People Roles</div>
+
+            <!-- 2LYP -->
+            <div class="card item exp-card">
+                <div class="exp-logo-corner">
+                    <img src="assets/logos/2lyp-logo.png" alt="2LYP Pvt Ltd logo">
+                </div>
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Part-time HR • 2LYP Pvt Ltd (Startup)</div>
+                        <div class="item-sub">Early-stage Startup • HR Operations &amp; Talent Support</div>
+                    </div>
+                    <div class="item-meta">Part-time</div>
+                </div>
+                <ul>
+                    <li>Supported recruitment activities including posting roles, basic screening, and interview
+                        coordination for interns and entry-level hires.</li>
+                    <li>Helped with onboarding documentation and guided new joiners on company policies and work
+                        culture.</li>
+                    <li>Updated basic employee data such as attendance and contact details in HR records and
+                        spreadsheets.</li>
+                    <li>Assisted founders with routine HR queries and small employee engagement initiatives.</li>
+                </ul>
+            </div>
+
+            <!-- PADMAJA SUZUKI -->
+            <div class="card item exp-card">
+                <div class="exp-logo-corner">
+                    <img src="assets/logos/padmaja-suzuki-logo.png" alt="Padmaja Suzuki logo">
+                </div>
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">HR Intern • Padmaja Suzuki</div>
+                        <div class="item-sub">Industrial HR Research • Employee Participation</div>
+                    </div>
+                    <div class="item-meta">Internship</div>
+                </div>
+                <ul>
+                    <li>Conducted survey-based research on “Employee Satisfaction towards Workers’ Participation in
+                        Management”.</li>
+                    <li>Analyzed responses to identify drivers of satisfaction, participation, and communication gaps.
+                    </li>
+                    <li>Drafted recommendations to improve participative decision-making and worker–management
+                        relations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <div class="section-title">Events &amp; Operations</div>
+
+            <!-- NORTIC EVENTS -->
+            <div class="card item exp-card">
+                <div class="exp-logo-corner">
+                    <img src="assets/logos/nortic-events-logo.png" alt="Nortic Events logo">
+                </div>
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Event Planner &amp; Live Technician • Nortic Events</div>
+                        <div class="item-sub">Corporate &amp; Academic Events</div>
+                    </div>
+                    <div class="item-meta">Freelance / Part-time</div>
+                </div>
+                <ul>
+                    <li>Supported planning and execution of 10+ events ensuring smooth flow of sessions and activities.
+                    </li>
+                    <li>Managed AV setups (sound, projection, lighting) and resolved technical issues during live
+                        events.</li>
+                </ul>
+            </div>
+
+            <!-- ZARIYAA -->
+            <div class="card item exp-card">
+                <div class="exp-logo-corner">
+                    <img src="assets/logos/zariyaa-logo.png" alt="Zariyaa logo">
+                </div>
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Organizer &amp; Volunteer • Zariyaa</div>
+                        <div class="item-sub">Wellness Festivals &amp; Corporate Well-being</div>
+                    </div>
+                    <div class="item-meta">Volunteer</div>
+                </div>
+                <ul>
+                    <li>Helped organize wellness festivals and corporate programs related to health and stress
+                        management.</li>
+                    <li>Handled registrations, participant guidance, and basic logistics at the venue.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
